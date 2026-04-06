@@ -132,7 +132,7 @@ const bookNow = () => {
         <!-- Main Content (Left) -->
         <div class="main-content">
           
-          <div class="venue-header">
+          <div v-motion-fade-visible-once class="venue-header">
             <div class="title-section">
               <h1>The Concrete Sanctuary</h1>
               <div class="meta-row">
@@ -157,13 +157,13 @@ const bookNow = () => {
             </div>
           </div>
           
-          <section class="about-section">
+          <section v-motion-slide-visible-once-bottom :delay="100" class="about-section">
             <h3>About this Curator's Choice</h3>
             <p>Designed by Sverre Fehn in 1974 and meticulously restored, The Concrete Sanctuary represents the pinnacle of Nordic Brutalism. This light-filled estate blends raw architectural strength with the delicate serenity of the surrounding fjords. Every corner has been curated to provide an immersive experience of space, material, and silence.</p>
             <a href="#" class="read-more">Read more about the history</a>
           </section>
           
-          <section class="features-section">
+          <section v-motion-slide-visible-once-bottom :delay="200" class="features-section">
             <h3>Venue Features</h3>
             <div class="features-grid">
               <div class="feature-item">
@@ -197,7 +197,7 @@ const bookNow = () => {
             </div>
           </section>
           
-          <section class="availability-section">
+          <section v-motion-slide-visible-once-bottom :delay="300" class="availability-section">
             <h3>Availability</h3>
             <div class="calendar-card">
               <div class="cal-header">
@@ -226,7 +226,7 @@ const bookNow = () => {
             </div>
           </section>
           
-          <section class="feedback-section">
+          <section v-motion-slide-visible-once-bottom :delay="400" class="feedback-section">
             <div class="feedback-header">
               <h3>Member Feedback</h3>
               <div class="rating-badge">
@@ -263,7 +263,7 @@ const bookNow = () => {
         </div>
         
         <!-- Sidebar Content (Right) -->
-        <div class="sidebar-wrapper">
+        <div v-motion-slide-visible-once-right :delay="300" class="sidebar-wrapper">
           <div class="sticky-sidebar">
             <div class="booking-card">
               

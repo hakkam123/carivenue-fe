@@ -114,20 +114,20 @@ const goToDetail = (id) => {
 <template>
   <div class="explore-page">
     <div class="explore-container">
-      <!-- Sidebar -->
-      <div class="sidebar-wrapper">
+        <!-- Sidebar -->
+      <div v-motion-fade-visible-once :delay="100" class="sidebar-wrapper">
         <ExploreFilter :initialFilters="filters" @update:filters="handleFilterUpdate" />
       </div>
       
       <!-- Main Content -->
       <main class="content-wrapper">
-        <nav class="breadcrumbs">
+        <nav v-motion-slide-visible-once-bottom class="breadcrumbs">
           <span>Directory</span>
           <span class="separator">›</span>
           <span class="current">Venues</span>
         </nav>
         
-        <header class="content-header">
+        <header v-motion-slide-visible-once-bottom :delay="100" class="content-header">
           <div class="header-text">
             <h1 class="title">Curated Venues in <span class="highlight">{{ filters.location || 'London' }}</span></h1>
             <p class="subtitle">Showing {{ filteredVenues.length }} hand-selected architectural masterpieces for your next event.</p>
@@ -145,7 +145,7 @@ const goToDetail = (id) => {
           </div>
         </header>
         
-        <div v-if="currentView === 'grid'" class="venues-grid">
+        <div v-motion-slide-visible-once-bottom :delay="200" v-if="currentView === 'grid'" class="venues-grid">
           <div v-if="paginatedVenues.length === 0" class="no-results">
             <p>No venues match your current filters. Please try relaxing your search.</p>
           </div>

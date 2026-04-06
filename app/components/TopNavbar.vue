@@ -2,21 +2,21 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="logo">
-        <span class="logo-text">CariVenue</span>
+        <NuxtLink to="/" style="text-decoration: none;"><span class="logo-text">CariVenue</span></NuxtLink>
       </div>
       
       <ul class="nav-links">
         <li>
-          <a href="#" class="nav-link active">Explore</a>
-          <div class="active-indicator"></div>
+          <NuxtLink to="/explore" class="nav-link" active-class="active">Explore</NuxtLink>
+          <div class="active-indicator" v-if="$route.path.startsWith('/explore')"></div>
         </li>
-        <li><a href="#" class="nav-link">About Us</a></li>
-        <li><a href="#" class="nav-link">Contact</a></li>
+        <li><NuxtLink to="/" class="nav-link" :class="{ active: $route.path === '/' }">About Us</NuxtLink></li>
+        <li><NuxtLink to="/venue/1" class="nav-link" active-class="active">Contact</NuxtLink></li>
       </ul>
       
       <div class="nav-actions">
-        <a href="#" class="btn-text">Host a Venue</a>
-        <button class="btn-primary">Sign Up</button>
+        <NuxtLink to="/" class="btn-text">Host a Venue</NuxtLink>
+        <button class="btn-primary" @click="navigateTo('/checkout/1')">Sign Up</button>
       </div>
     </div>
   </nav>
