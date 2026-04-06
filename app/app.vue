@@ -10,30 +10,16 @@ useHead({
 </script>
 
 <template>
-  <div class="app-layout">
-    <TopNavbar />
-    <NuxtRouteAnnouncer />
-    <main class="main-content">
-      <NuxtPage />
-    </main>
-    <AppFooter />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <style>
-/* Global Layout styling to ensure the footer sits at the bottom */
+/* Global Layout styling */
 html, body {
   margin: 0;
   padding: 0;
-}
-
-.app-layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main-content {
-  flex: 1;
+  font-family: 'Manrope', sans-serif;
 }
 </style>
