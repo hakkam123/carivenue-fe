@@ -38,30 +38,13 @@
             title="The Vision"
             description="To become the global authority in architectural hospitality, making the world's most inaccessible and significant structures available for transformative human connection."
           >
-            <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8B7133" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </template>
+
           </PhilosophyCard>
           
           <PhilosophyCard 
             title="The Mission"
             description="We protect the heritage of extraordinary spaces by creating a sustainable revenue model through high-end event curation, ensuring these masterpieces are preserved for future generations."
           >
-            <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8B7133" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-                <path d="M4 22h16" />
-                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
-                <path d="M14 14.66V17c0 .55.45.98.95 1.21 1.2.46 2.05 1.95 2.05 3.71" />
-                <path d="M18 2h-2v7a2 2 0 0 0 2 2 2 2 0 0 0 2-2V2z" />
-                <path d="M6 2h2v7a2 2 0 0 1-2 2 2 2 0 0 1-2-2V2z" />
-                <rect width="4" height="10" x="10" y="2" rx="2" />
-              </svg>
-            </template>
           </PhilosophyCard>
         </div>
       </div>

@@ -16,8 +16,24 @@ const incGuests = () => {
   guestCount.value++
 }
 
+const isProcessing = ref(false)
+const isSuccess = ref(false)
+
 const proceed = () => {
-  alert(`Processing payment of $6,586.50 via ${paymentMethod.value.replace('_', ' ')}...`)
+  if (isProcessing.value || isSuccess.value) return
+  
+  isProcessing.value = true
+  
+  // Simulate API call
+  setTimeout(() => {
+    isProcessing.value = false
+    isSuccess.value = true
+    
+    // Reset after a few seconds
+    setTimeout(() => {
+      isSuccess.value = false
+    }, 3000)
+  }, 1500)
 }
 </script>
 
@@ -171,7 +187,24 @@ const proceed = () => {
                 <div class="total-price">$6,586.50</div>
               </div>
               
-              <button class="proceed-btn" @click="proceed">Proceed to Payment</button>
+              <button 
+                class="proceed-btn" 
+                :class="{ 'btn-success': isSuccess, 'btn-processing': isProcessing }"
+                @click="proceed"
+                :disabled="isProcessing"
+              >
+                <template v-if="isProcessing">
+                  <span class="spinner"></span> Processing...
+                </template>
+                <template v-else-if="isSuccess">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:-4px; margin-right:4px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                  Payment Successful!
+                </template>
+                <template v-else>
+                  Proceed to Payment
+                </template>
+              </button>
+
               
               <p class="terms-text">
                 By clicking "Proceed to Payment" you agree to our <a href="#">Venue Guidelines</a> and <a href="#">Terms of Service</a>.
@@ -566,9 +599,34 @@ label {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.proceed-btn:hover {
+.proceed-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(139, 110, 0, 0.3);
+}
+
+.proceed-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.proceed-btn.btn-success {
+  background: #28a745; /* Success green */
+}
+
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .terms-text {

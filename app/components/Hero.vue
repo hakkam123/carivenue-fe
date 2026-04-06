@@ -32,7 +32,7 @@
               <input type="text" placeholder="Add guests" />
             </div>
           </div>
-          <button class="search-btn">
+          <button class="search-btn" @click="navigateTo('/explore')">
             Cari Venue
           </button>
         </div>

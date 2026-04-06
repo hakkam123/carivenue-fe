@@ -6,7 +6,7 @@
           <h2>Popular Venues</h2>
         </div>
         <div class="header-right">
-          <a href="#" class="view-all">View all &rarr;</a>
+          <NuxtLink to="/explore" class="view-all">View all &rarr;</NuxtLink>
         </div>
       </div>
 

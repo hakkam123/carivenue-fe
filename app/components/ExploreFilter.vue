@@ -267,6 +267,8 @@ watch(form, (newVal) => {
 }
 
 .checkbox-box {
+  display: inline-block;
+  flex-shrink: 0;
   width: 18px;
   height: 18px;
   border: 1.5px solid #d0d0d0;

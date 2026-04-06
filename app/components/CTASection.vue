@@ -6,8 +6,8 @@
           <h2>Mulai Rencanakan Acara Anda Sekarang</h2>
           <p>Gunakan platform CariVenue untuk pengalaman pencarian dan pemesanan venue yang lebih modern, cepat, dan transparan.</p>
           <div class="cta-actions">
-            <button class="btn btn-primary">Browse Venue</button>
-            <button class="btn btn-outline">Hubungi Sales</button>
+            <NuxtLink to="/explore" class="btn btn-primary">Browse Venue</NuxtLink>
+            <a href="https://wa.me/6285218443945" target="_blank" class="btn btn-outline" style="text-decoration: none;">Hubungi Sales</a>
           </div>
         </div>
       </div>

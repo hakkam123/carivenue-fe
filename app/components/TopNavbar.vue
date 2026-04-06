@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="logo">
-        <span class="logo-text">CariVenue</span>
+        <NuxtLink to="/" style="text-decoration: none;"><span class="logo-text">CariVenue</span></NuxtLink>
       </div>
       
       <ul class="nav-links">
@@ -18,8 +18,8 @@
       </ul>
       
       <div class="nav-actions">
-        <a href="#" class="btn-text">Host a Venue</a>
-        <button class="btn-primary">Sign Up</button>
+        <NuxtLink to="/contact" class="btn-text">Host a Venue</NuxtLink>
+        <button class="btn-primary" @click="navigateTo('/checkout/1')">Sign Up</button>
       </div>
     </div>
   </nav>

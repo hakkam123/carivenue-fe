@@ -13,33 +13,27 @@ useHead({
   <div class="app-layout">
     <TopNavbar />
     <NuxtRouteAnnouncer />
-    <NuxtPage />
+    <main class="main-content">
+      <NuxtPage />
+    </main>
     <AppFooter />
   </div>
 </template>
 
 <style>
-.app-layout {
-  position: relative;
+/* Global Layout styling to ensure the footer sits at the bottom */
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-.checkout-content {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: var(--bg-light);
+.app-layout {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-.checkout-layout {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 3rem;
-  align-items: flex-start;
-}
-
-@media (max-width: 1024px) {
-  .checkout-layout {
-    grid-template-columns: 1fr;
-  }
+.main-content {
+  flex: 1;
 }
 </style>
