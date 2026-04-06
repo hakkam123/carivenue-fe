@@ -107,7 +107,7 @@ const changePage = (page) => {
 }
 
 const goToDetail = (id) => {
-  navigateTo(`/checkout/${id}`)
+  navigateTo(`/venue/${id}`)
 }
 </script>
 
