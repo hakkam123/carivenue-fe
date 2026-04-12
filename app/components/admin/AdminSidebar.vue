@@ -62,6 +62,9 @@ const bottomLinks = [
 <style scoped>
 .admin-sidebar {
   width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
   background-color: var(--sage-green);
   color: var(--cream);
   display: flex;
@@ -69,6 +72,7 @@ const bottomLinks = [
   padding: 2.5rem 0;
   flex-shrink: 0;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 100;
 }
 
 .sidebar-header {
@@ -133,12 +137,14 @@ const bottomLinks = [
 }
 
 .sidebar-nav {
-  flex: 1;
+  flex: 1; /* This will take up all available space, pushing the footer down */
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
   padding: 0 1.5rem;
+  overflow-y: auto; /* Allow scrolling if many links are added */
 }
+
 
 .nav-item {
   display: flex;
