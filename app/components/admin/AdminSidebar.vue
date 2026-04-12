@@ -18,13 +18,20 @@ const bottomLinks = [
   <aside class="admin-sidebar">
     <div class="sidebar-header">
       <div class="logo-box">
-        <div class="logo-icon">A</div>
+        <div class="logo-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 5L32 12V28L20 35L8 28V12L20 5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 12V28M13 16L27 24M13 24L27 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="20" cy="20" r="4" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </div>
         <div class="logo-text">
           <span class="main">CariVenue</span>
-          <span class="sub">EXECUTIVE ARCHITECT</span>
+          <span class="sub">DESESICABLY</span>
         </div>
       </div>
     </div>
+
 
     <nav class="sidebar-nav">
       <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path" class="nav-item">
@@ -55,106 +62,137 @@ const bottomLinks = [
 <style scoped>
 .admin-sidebar {
   width: 280px;
-  background-color: #0B192C;
-  color: white;
+  background-color: var(--sage-green);
+  color: var(--cream);
   display: flex;
   flex-direction: column;
-  padding: 2rem 0;
+  padding: 2.5rem 0;
   flex-shrink: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .sidebar-header {
-  padding: 0 1.5rem;
-  margin-bottom: 3rem;
+  padding: 0 2rem;
+  margin-bottom: 4rem;
 }
 
 .logo-box {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  text-align: center;
+  gap: 0.75rem;
 }
 
 .logo-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, #3A7DE0 0%, #205BB5 100%);
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: 1.2rem;
+  color: var(--cream);
+}
+
+.logo-icon svg {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
 .logo-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .logo-text .main {
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: var(--serif-font);
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--cream);
 }
 
 .logo-text .sub {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 700;
-  opacity: 0.5;
-  letter-spacing: 0.1em;
+  opacity: 0.7;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-top: -2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text .sub::before,
+.logo-text .sub::after {
+    content: "";
+    width: 12px;
+    height: 1px;
+    background: var(--cream);
+    opacity: 0.5;
 }
 
 .sidebar-nav {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 0 1rem;
+  gap: 0.6rem;
+  padding: 0 1.5rem;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.85rem 1rem;
+  gap: 1.25rem;
+  padding: 0.85rem 1.25rem;
   text-decoration: none;
-  color: white;
+  color: var(--cream);
   opacity: 0.5;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.2s ease;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0;
+  border-left: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item:hover {
   opacity: 1;
-  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateX(6px);
 }
 
 .nav-item.router-link-active {
   opacity: 1;
-  background-color: #3A7DE0;
+  background-color: transparent;
+  color: var(--cream);
+  border-left-color: var(--gold);
 }
 
 .icon-wrapper {
   width: 20px;
   display: flex;
   justify-content: center;
+  transition: color 0.3s ease;
 }
 
+.nav-item.router-link-active .icon-wrapper {
+    color: var(--gold);
+}
+
+
 .sidebar-footer {
-  padding: 2rem 1rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem 1.25rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.4rem;
 }
 
 .nav-item.bottom {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .nav-item.bottom:hover {
   opacity: 1;
 }
+
 </style>
