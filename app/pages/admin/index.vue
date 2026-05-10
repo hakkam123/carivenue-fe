@@ -1,6 +1,8 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 definePageMeta({
-  layout: 'admin'
+  layout: 'admin',
+  middleware: 'auth'
 })
 
 // Duplicated from explore.vue as requested

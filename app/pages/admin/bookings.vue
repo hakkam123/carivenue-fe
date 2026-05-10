@@ -1,6 +1,7 @@
 <script setup>
 definePageMeta({
-  layout: 'admin'
+  layout: 'admin',
+  middleware: 'auth'
 })
 
 import BookingTable from '~/components/admin/BookingTable.vue'

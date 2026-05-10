@@ -19,7 +19,7 @@
       
       <div class="nav-actions">
         <NuxtLink to="/contact" class="btn-text">Host a Venue</NuxtLink>
-        <button class="btn-primary" @click="navigateTo('/admin')">Sign Up</button>
+        <button class="btn-primary" @click="navigateTo('/auth/login')">Sign Up</button>
       </div>
     </div>
   </nav>

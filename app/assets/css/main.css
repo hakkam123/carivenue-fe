@@ -176,3 +176,19 @@ select.form-control {
     padding: 3rem 0;
   }
 }
+
+.error-text {
+  background-color: #FEE2E2;
+  color: #DC2626;
+  padding: 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border: 1px solid #FECACA;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

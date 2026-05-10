@@ -1,6 +1,7 @@
 <script setup>
 definePageMeta({
-  layout: 'admin'
+  layout: 'admin',
+  middleware: 'auth'
 })
 
 import DashboardStats from '~/components/admin/DashboardStats.vue'
