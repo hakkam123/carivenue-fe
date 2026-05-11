@@ -1,3 +1,23 @@
+<script setup>
+import { computed } from 'vue'
+
+const tokenCookie = useCookie('token')
+const userCookie = useCookie('user')
+
+const isLoggedIn = computed(() => !!tokenCookie.value)
+
+const userParsed = computed(() => {
+  try { return JSON.parse(userCookie.value || '{}') }
+  catch { return {} }
+})
+
+const userInitials = computed(() => {
+  const name = userParsed.value?.full_name || userParsed.value?.email || ''
+  if (!name) return '?'
+  return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
+})
+</script>
+
 <template>
   <nav class="navbar">
     <div class="navbar-container">
@@ -19,7 +39,18 @@
       
       <div class="nav-actions">
         <NuxtLink to="/contact" class="btn-text">Host a Venue</NuxtLink>
-        <button class="btn-primary" @click="navigateTo('/auth/login')">Sign Up</button>
+
+        <!-- Logged-in: show avatar -->
+        <NuxtLink v-if="isLoggedIn" to="/profile" class="nav-avatar" :title="userParsed?.full_name || 'Profile'">
+          <img v-if="userParsed?.avatar" :src="userParsed.avatar" :alt="userParsed.full_name" class="avatar-img" />
+          <span v-else class="avatar-initials">{{ userInitials }}</span>
+        </NuxtLink>
+
+        <!-- Not logged-in: show Sign Up / Profile demo link -->
+        <template v-else>
+          <NuxtLink to="/profile" class="btn-text nav-profile-link">Profile</NuxtLink>
+          <button class="btn-primary" @click="navigateTo('/auth/login')">Sign Up</button>
+        </template>
       </div>
     </div>
   </nav>
@@ -134,5 +165,51 @@
   .nav-links, .btn-text {
     display: none;
   }
+}
+
+/* Nav Avatar */
+.nav-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.nav-avatar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 110, 0, 0.15);
+}
+
+.nav-avatar .avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #E2E8F0;
+}
+
+.nav-avatar .avatar-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #8B6E00, #A67C00);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  border-radius: 12px;
+}
+
+.nav-profile-link {
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 </style>
